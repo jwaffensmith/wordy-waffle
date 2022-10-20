@@ -6,8 +6,8 @@ A take on the popular Wordle game by Josh Wardle. Fun fact, did you know that Wo
 
 === Live Site ===
 
-Coming Soon
-In the meantime play the v1 version here! 
+Coming Soon\
+In the meantime, play v1 here! 
 https://wordywaffle.netlify.app/
 
 === Technologies ===
@@ -17,8 +17,8 @@ https://wordywaffle.netlify.app/
 * Redux
 * Node
 * Express
-* Cypress
 * Express
+* Cypress
 * Tailwind
 
 === Create React App ===
