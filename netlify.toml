@@ -1,5 +1,5 @@
 [build]
-  command = "cd wordle-app && npm install && npm run build && cd .. && rm -rf build && mkdir build && cp -R express-server/* build/ && cp -R wordle-app/build/* build/ && cd build && npm install --only=prod && cd .. && cp express-server/package*.json build/ && cd build && npm install && npm run build"
+  command = "cd wordle-app && npm install && npm run build && cd .. && rm -rf build && mkdir build && cp -R express-server/* build/ && cp -R wordle-app/build/* build/ && cd build && npm install && cd .. && cp express-server/package*.json build/ && cd build && npm install && npm run build"
   publish = "build"
 
 [build.environment]
