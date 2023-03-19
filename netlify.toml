@@ -1,5 +1,12 @@
 [build]
-  command = "cd wordle-app && npm install && npm run build && cd .. && rm -rf build && mkdir build && cp -R express-server/* build/ && cp -R wordle-app/build/* build/ && cd build && npm install && cd .. && cp express-server/package*.json build/ && cd build && npm install && npm run build"
+  command = "cd express-server && npm install && npm run build && cd ..
+  cd wordle-app && npm install && npm run build && cd ..
+  rm -rf build && mkdir build
+  cp -R express-server/dist/* build/
+  cp -R wordle-app/build/* build/
+  cp express-server/package*.json build/
+  cd build && npm install --only=prod && cd ..
+  mv build/index.js build/dist/index.js"
   publish = "build"
 
 [build.environment]
