@@ -1,7 +1,6 @@
 [build]
-  command = "npm run build"
-  functions = "epxress-server/"
-  publish = "worldle-app/build"
+  command = "cd wordle-app && npm install && npm run build && cd ../express-server && npm install && npm run build"
+  publish = "worldle-app/public"
   
 [[plugins]]
   package = "@netlify/plugin-nextjs"
