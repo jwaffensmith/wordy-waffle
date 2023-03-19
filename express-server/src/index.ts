@@ -36,15 +36,11 @@ const PORT = process.env.PORT || 5001;
       if (!data) {
         return res.status(400).end()
       }
-        // remove after debugging
-        console.log(req.body)
         const guess = data.guess;
         if (req.getWordOfDay) {
           const getWord = req.getWordOfDay
           const word = getWord()
           const evaluations = checkTiles(guess, word);
-          // remove after debugging
-          console.log(evaluations)
           return res.status(200).json({evaluations: evaluations})
       }
       return res.status(400).end()
