@@ -1,5 +1,2 @@
 [build]
   command = "cd wordle-app && npm install && npm run build && cd ../express-server && npm install && npm run build"
-  
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
