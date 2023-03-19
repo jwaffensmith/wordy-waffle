@@ -23,7 +23,6 @@
     "react-scripts": "5.0.0",
     "react-simple-keyboard": "^3.4.74",
     "redux": "^4.1.2",
-    "typescript": "^4.6.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -54,7 +53,8 @@
     "autoprefixer": "^10.4.2",
     "cypress": "^9.5.3",
     "postcss": "^8.4.7",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.0.23",
+    "typescript": "^4.6.3"
   },
   "proxy": "http://localhost:5001"
 }
