@@ -6,8 +6,6 @@ A take on the popular Wordle game by Josh Wardle. Fun fact, did you know that Wo
 
 === Live Site ===
 
-Coming Soon\
-In the meantime, play v1 here! 
 https://wordywaffle.netlify.app/
 
 === Technologies ===
