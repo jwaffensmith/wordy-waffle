@@ -71,11 +71,12 @@ const PORT = process.env.PORT || 5001;
                 const valid = isWordValid(guess, word);
                 const win = isWin(guess, word);
                 const loss = isLoss(guess, rowIndex, word);
+                const classes = virtualKeyboardClasses(guess, word);
                 // only send word if loss === true
                 if (loss) {
-                    return res.status(200).json({ word: word, isLoss: loss, isValid: valid });
+                    return res.status(200).json({ word: word, isLoss: loss, isValid: valid, correctLetters: classes[0], presentLetters: classes[1], absentLetters: classes[2] });
                 }
-                return res.status(200).json({ isValid: valid, isWin: win, isLoss: loss });
+                return res.status(200).json({ isValid: valid, isWin: win, isLoss: loss, correctLetters: classes[0], presentLetters: classes[1], absentLetters: classes[2] });
             }
             return res.status(400).end();
         }
@@ -84,24 +85,23 @@ const PORT = process.env.PORT || 5001;
             res.status(400).end();
         }
     }));
-    app.post("/api/check-classes", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        try {
-            const data = yield req.body;
-            if (!data) {
-                return res.status(400).end();
-            }
-            const guess = data.guess;
-            if (req.getWordOfDay) {
-                const getWord = req.getWordOfDay;
-                const word = getWord();
-                const classes = virtualKeyboardClasses(guess, word);
-                return res.status(200).send({ correctLetters: classes[0], presentLetters: classes[1], absentLetters: classes[2] });
-            }
-            return res.status(400).end();
-        }
-        catch (e) {
-            console.error(e);
-            res.status(400).end();
-        }
-    }));
+    // app.post("/api/check-classes", async (req: WordRequest, res: Response) => {
+    //   try { 
+    //     const data = await req.body;
+    //     if (!data) {
+    //       return res.status(400).end()
+    //     }
+    //       const guess = data.guess
+    //       if (req.getWordOfDay) {
+    //         const getWord = req.getWordOfDay
+    //         const word = getWord()
+    //         const classes = virtualKeyboardClasses(guess, word);
+    //         return res.status(200).send({correctLetters: classes[0], presentLetters: classes[1], absentLetters: classes[2]})
+    //       }
+    //       return res.status(400).end()
+    //   } catch (e) {
+    //     console.error(e)
+    //     res.status(400).end();
+    //   }
+    // });
 }))();

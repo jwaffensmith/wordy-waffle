@@ -113,6 +113,7 @@ const GameContainer = () => {
         if (totalWon) {
             dispatch(changeGamesWon(totalWon));
         }
+        // eslint-disable-next-line
     }, []);
 
     // localstorage setItem
@@ -146,7 +147,10 @@ const GameContainer = () => {
                 setGuessedWords([...guessedWords, guess.join('')]);
                 dispatch(changeGuess([]));
                 setRowIndex(rowIndex + 1);
-                setCheckGuess(false) 
+                setCheckGuess(false)
+                setCorrectLetters(`${correctLetters} ${res.data.correctLetters.join(' ')}`)
+                setPresentLetters(`${presentLetters} ${res.data.presentLetters.join(' ')}`)
+                setAbsentLetters(`${absentLetters} ${res.data.absentLetters.join(' ')}`)
                 if (res.data.isWin) {
                     setGameStatus("won");
                     dispatch(changeGamesPlayed(gamesPlayed + 1));
@@ -157,6 +161,9 @@ const GameContainer = () => {
                     setShowAlert(true);
                     setTimeout(handleAlertClose, 3000);
                     setShowModal(true);
+                    setCorrectLetters(`${correctLetters} ${res.data.correctLetters.join(' ')}`)
+                    setPresentLetters(`${presentLetters} ${res.data.presentLetters.join(' ')}`)
+                    setAbsentLetters(`${absentLetters} ${res.data.absentLetters.join(' ')}`)
                 } else if (res.data.isLoss) {
                     setGameStatus("lost");
                     dispatch(changeGamesPlayed(gamesPlayed + 1));
@@ -165,6 +172,9 @@ const GameContainer = () => {
                     setShowAlert(true);
                     setTimeout(handleAlertClose, 3000);
                     setShowModal(true);
+                    setCorrectLetters(`${correctLetters} ${res.data.correctLetters.join(' ')}`)
+                    setPresentLetters(`${presentLetters} ${res.data.presentLetters.join(' ')}`)
+                    setAbsentLetters(`${absentLetters} ${res.data.absentLetters.join(' ')}`)
                 }
             } else {
                 setAlertMessage("Not in word list");
@@ -177,22 +187,7 @@ const GameContainer = () => {
                 console.error('Error:', error);
             });
         }
-	}, [checkGuess]);
-
-     // post request to add classes to virtual keyboard buttons
-     useEffect(() => {
-        if (checkGuess) {
-            axios.post("/api/check-classes", { guess: guess })
-            .then((res) => {
-            console.log(res.data);
-            setCorrectLetters(`${correctLetters} ${res.data.correctLetters.join(' ')}`)
-            setPresentLetters(`${presentLetters} ${res.data.presentLetters.join(' ')}`)
-            setAbsentLetters(`${absentLetters} ${res.data.absentLetters.join(' ')}`)
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        }
+        // eslint-disable-next-line
 	}, [checkGuess]);
     
     // custom hook for transforming lowercase letter input from physical keyboard

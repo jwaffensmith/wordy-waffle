@@ -17,6 +17,7 @@ const SubmittedRow = ( { guess }: SubmittedRowProps ) => {
         .catch((error) => {
             console.error('Error:', error);
         });
+        // eslint-disable-next-line
 	}, []);
 
     return (
