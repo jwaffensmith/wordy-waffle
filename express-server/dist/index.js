@@ -63,8 +63,6 @@ const PORT = process.env.PORT || 5001;
             if (!data) {
                 return res.status(400).end();
             }
-            // remove after debugging
-            console.log(req.body);
             const guess = data.guess;
             const rowIndex = data.rowIndex;
             if (req.getWordOfDay) {
@@ -92,8 +90,6 @@ const PORT = process.env.PORT || 5001;
             if (!data) {
                 return res.status(400).end();
             }
-            // remove after debugging
-            console.log(req.body);
             const guess = data.guess;
             if (req.getWordOfDay) {
                 const getWord = req.getWordOfDay;

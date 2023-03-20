@@ -20,6 +20,7 @@ const PORT = process.env.PORT || 5001;
   // middleware
   app.use(bodyParser.json())
   app.use(cors());
+  
   /* 
   === Design Patterns Assignment === 
    The testMiddleware function can be viewed as utilizing the Chain of Responsibility pattern. This middleware handles the req object before the route receives the request.The testMiddleware adds a property getWordOfDay with a value of the getWordOfDay function. The return of this function is determined by the headers user-agent. For example, the getWordOfDay function will return the game's word of the day if the user-agent is the player's computer. If the user-agent contains Cypress, the function will return the pre-set word of the day, "HELLO", for testing. After handling this logic and data, the testMiddleware passes the modified request object to each route which are the next handlers in the chain of responsibility of the getWordOfDay function. */
@@ -56,8 +57,6 @@ const PORT = process.env.PORT || 5001;
       if (!data) {
         return res.status(400).end()
       }
-      // remove after debugging
-      console.log(req.body)
       const guess = data.guess
       const rowIndex = data.rowIndex
       if (req.getWordOfDay) {
@@ -85,8 +84,6 @@ const PORT = process.env.PORT || 5001;
       if (!data) {
         return res.status(400).end()
       }
-      // remove after debugging
-        console.log(req.body)
         const guess = data.guess
         if (req.getWordOfDay) {
           const getWord = req.getWordOfDay

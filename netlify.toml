@@ -1,16 +1,14 @@
 [build]
-  command = "cd express-server && npm install && npm run build && cd .. cd wordle-app && npm install && npm run build && cd .. rm -rf build && mkdir build cp -R express-server/dist/* build/ cp -R wordle-app/build/* build/"
-  publish = "build"
-
-[build.environment]
-  NODE_ENV = "production"
+  command = "cd wordle-app && npm install && npm run build && cd ../express-server && npm install && npm run build && npm start"
+  publish = "wordle-app/build"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
+  
 [[redirects]]
   from = "/api/*"
-  to = "http://localhost:5000/:splat"
+  to = "http://localhost:8888/:splat"
   status = 200
+  force = true

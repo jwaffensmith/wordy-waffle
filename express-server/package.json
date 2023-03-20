@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
-    "start": "node dist/index.js",
+    "start": "npm-run-all --parallel start:react start:express",
+    "start:react": "cd ../wordle-app && npm start",
+    "start:express": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
   },
   "keywords": [],
@@ -22,6 +24,7 @@
     "concurrently": "^7.0.0",
     "cypress": "^9.5.3",
     "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
     "typescript": "^4.6.3"
   }
 }
