@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
-    "start": "npm-run-all --parallel start:react start:express",
+    "start": "node dist/index.js",
+    "start-waffle": "npm-run-all --parallel start:react start:express",
     "start:react": "cd ../wordle-app && npm start",
     "start:express": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
