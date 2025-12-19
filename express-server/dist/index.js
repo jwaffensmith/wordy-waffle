@@ -85,23 +85,4 @@ const PORT = process.env.PORT || 5001;
             res.status(400).end();
         }
     }));
-    // app.post("/api/check-classes", async (req: WordRequest, res: Response) => {
-    //   try { 
-    //     const data = await req.body;
-    //     if (!data) {
-    //       return res.status(400).end()
-    //     }
-    //       const guess = data.guess
-    //       if (req.getWordOfDay) {
-    //         const getWord = req.getWordOfDay
-    //         const word = getWord()
-    //         const classes = virtualKeyboardClasses(guess, word);
-    //         return res.status(200).send({correctLetters: classes[0], presentLetters: classes[1], absentLetters: classes[2]})
-    //       }
-    //       return res.status(400).end()
-    //   } catch (e) {
-    //     console.error(e)
-    //     res.status(400).end();
-    //   }
-    // });
 }))();

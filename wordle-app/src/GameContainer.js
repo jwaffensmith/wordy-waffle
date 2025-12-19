@@ -199,8 +199,8 @@ const GameContainer = () => {
     // check and store user input 
     const onKeyPress = button => {
         const isLetter = /^[A-Z]$/.test(button);
-        const isBackspace = button === '{backspace}' 
-        const isEnter = button === '{enter}'
+        const isBackspace = button === '{backspace}' || button === 'Backspace'
+        const isEnter = button === '{enter}' || button === 'Enter'
         const gameInProgress = guess.length === 0 && rowIndex === 0;
         if (isLetter && gameInProgress) {
             setGameStatus("inProgress");
